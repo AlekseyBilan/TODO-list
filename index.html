@@ -1,30 +1,19 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app="Task2App">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="todoApp">
 <head>
-    <title>Task 2 TODO LIST</title>
+    <title>TODO LIST</title>
     <script src="js/Libraries/angular.js"></script>
     <script src="js/todo.js"></script>
     <link href="css/Libraries/bootstrap.css" rel="stylesheet" />
     <link href="css/Libraries/bootstrap-theme.css" rel="stylesheet" />
     <script>
-/*
-* Задание 1
- Измените приложение ToDo List (Задание 1. Урок 1) таким образом, чтобы значение свойства description
- отображалось при нажатии на кнопку «Детали» справа от таблицы.
- Колонку Description из самой таблицы необходимо убрать.
- В задании необходимо
- использовать partial view.
- */
-        // Добавьте AngularJS контроллер
+        var task2App = angular.module("todoApp", []);
 
-        var task2App = angular.module("Task2App", []);
-
-        var task2AppCtrl = task2App.controller("task2AppCtrl", function ($scope) {
+        var task2AppCtrl = task2App.controller("todoAppCtrl", function ($scope) {
             $scope.tasks = todoModel.read(); //add model
             $scope.newTask = null;
 
             $scope.addButtonClick = function () {
-                console.log('SCOPE', $scope.newTask.name, $scope.newTask.date, $scope.newTask.description, $scope.newTask.completed);
                 todoModel.addItem($scope.newTask.name, $scope.newTask.date, $scope.newTask.description, $scope.newTask.completed);
                 todoModel.save();
             };
@@ -44,7 +33,7 @@
     </script>
 
 </head>
-<body ng-controller="task2AppCtrl">
+<body ng-controller="todoAppCtrl">
 
 <div class="container">
 
@@ -57,14 +46,14 @@
             <div class="form-group row">
                 <label for="input1" class="col-sm-2 control-label">Name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="taskName" placeholder="Task Name" ng-model="newTask.name">
+                    <input type="text" class="form-control" id="taskName" placeholder="Task name" ng-model="newTask.name">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="input2" class="col-sm-2 control-label">Due Date</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="date" ng-model="newTask.date">
+                    <input type="text" class="form-control" id="date" placeholder="02.02.2016" ng-model="newTask.date">
                 </div>
             </div>
 

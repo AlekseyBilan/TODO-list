@@ -1,0 +1,15 @@
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Completed</th>
+    </tr>
+    </thead>
+    <tr ng-repeat="task in tasks">
+        <td>{{task.name}}</td>
+        <!--<td>{{task.description}}</td>-->
+        <td>{{task.duedate}}</td>
+        <td>{{task.completed}}</td>
+    </tr>
+</table>

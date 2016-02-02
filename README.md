@@ -1,4 +1,4 @@
 # TODO-list
 Angular.js test project 
 
-todo list
+todo list app
